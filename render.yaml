@@ -3,5 +3,5 @@ services:
   plan: free
   name: portfolio-render
   runtime: python
-  buildCommand: './build.sh'
-  startCommand: gunicorn core.wsgi:application --bind 0.0.0.0:8000
+  buildCommand: bash build.sh
+  startCommand: gunicorn core.wsgi
