@@ -25,6 +25,8 @@
         <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
 
         <link href="{% static 'css/templatemo-first-portfolio-style.css' %}" rel="stylesheet">
+        <link href="{% static 'css/popup.css' %}" rel="stylesheet">
+
 
 <!--
 
@@ -34,7 +36,6 @@ https://templatemo.com/tm-578-first-portfolio
 
 -->
     </head>
-    
     <body>
 
         <section class="preloader">
@@ -444,7 +445,8 @@ https://templatemo.com/tm-578-first-portfolio
                             </div>
 
                             <div class="col-lg-6 col-12 mt-5 mt-lg-0">
-                                <form action="#" method="get" class="custom-form contact-form" role="form">
+                                <form action="{% url 'contact' %}" method="post" class="custom-form contact-form" role="form">
+                                    {% csrf_token %}
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-12">
                                             <div class="form-floating">
@@ -497,7 +499,25 @@ https://templatemo.com/tm-578-first-portfolio
                                         </div>
 
                                     </div>
+                                    <!-- {% if messages %}
+                                        {% for message in messages %}
+                                            <div class="popup-message popup">
+                                                <span class="popup-icon">✅</span> {{ message }}
+                                                <span class="close-popup" style="cursor: pointer;">&times;</span>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %} -->
+                                    {% if messages %}
+                                        {% for message in messages %}
+                                        <script>
+                                            window.onload = function() {
+                                                alert("{{ message }}");
+                                            };
+                                        </script>
+                                        {% endfor %}
+                                    {% endif %}
                                 </form>
+                                
                             </div>
 
                         </div>
@@ -533,6 +553,8 @@ https://templatemo.com/tm-578-first-portfolio
         <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
         <script src="{% static 'js/magnific-popup-options.js' %}"></script>
         <script src="{% static 'js/custom.js' %}"></script>
+        <script src="{% static 'js/popup.js' %}"></script>
+        <script></script>
 
     </body>
 </html>

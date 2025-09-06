@@ -1,0 +1,31 @@
+<style>
+.popup {
+  background: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+.popup-icon {
+  font-size: 20px;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<script>
+  setTimeout(() => {
+    const popup = document.getElementById("popup-message");
+    if (popup) popup.style.display = "none";
+  }, 4000); // auto hide after 4 sec
+</script>
